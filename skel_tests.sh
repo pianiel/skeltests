@@ -18,7 +18,7 @@ Workers=64
 CPU=opteron6276
 
 Home="/people/plganiel"
-EmasHome=$Home"/erlang-emas" 
+EmasHome=$Home"/skeltests" 
 ScriptRoot="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BeamDirs="-pa $EmasHome/ebin/ $EmasHome/deps/*/ebin"
 OutputDir=output
@@ -30,7 +30,7 @@ output="$ScriptRoot/$OutputDir/"$Model"_"$Time"_"$Islands"_"$Cores".out"
 CommonSettings=""
 CommonSettings+=" ""-j oe" # Join stdout and stderr
 CommonSettings+=" ""-A $GrantID"	# Grant ID
-CommonSettings+=" ""-N kerltest" # Job name
+CommonSettings+=" ""-N "$Model"_"$Cores # Job name
 CommonSettings+=" ""-l walltime=$(($Time / 500))" # 2 times the job time
 CommonSettings+=" ""-l pmem=512mb" # Memory per core
 CommonSettings+=" ""-q l_bigmem" # Queue

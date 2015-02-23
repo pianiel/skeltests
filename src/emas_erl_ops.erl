@@ -30,7 +30,7 @@ recombination(S1, S2, _SP) ->
 %% @doc Mutates the features at random indices
 -spec mutation(solution(), sim_params()) -> solution().
 mutation(S, SP) ->
-    NrGenesMutated = misc_util:average_number(SP#sim_params.mutation_rate, S),
+    NrGenesMutated = mas_misc_util:average_number(SP#sim_params.mutation_rate, S),
     Indexes = [random:uniform(length(S)) || _ <- lists:seq(1, NrGenesMutated)], % indices may be duplicated
     mutate_genes(S, lists:usort(Indexes), 1, [], SP). % usort removes duplicates
 

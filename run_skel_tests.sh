@@ -10,6 +10,6 @@ pull="disable"
 # ops="emas_test_ops"
 # pull="enable"
 
-for $core in $cores; do
-	./skel_tests.sh $model $core $t $ops $pull
+for core in $cores; do
+    ./skel_tests.sh $model $core $t $ops $pull
 done
